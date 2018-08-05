@@ -10,14 +10,10 @@ namespace CommandParser85
 {
     class NoLoopExample
     {
-        public void NoLoop(List<string> list, string example_file)
+        public void NoLoop(List<string> list, List<string> new_list, string example_file, string commentPattern)
         {
             var path = $"{Path.GetDirectoryName(example_file)}\\{Path.GetFileNameWithoutExtension(example_file)}Complete{Path.GetExtension(example_file)}";
-
-            var commentPattern = @"\s*^(#.+)";
-
-            List<string> new_list = new List<string>();
-
+            
             foreach (var list_item in list)
             {
                 Match commentCheck = Regex.Match(list_item, commentPattern, RegexOptions.Singleline);
@@ -26,11 +22,8 @@ namespace CommandParser85
                     new_list.Add(list_item);
             }
 
-            foreach (var list_item in new_list)
-            {
-                //Console.WriteLine(list_item);
-                File.AppendAllText(path, list_item.ToString() + Environment.NewLine);
-            }
+            //Writing to a new file
+            ActionClass.WriteToFile(new_list, path);
         }
     }
 }

@@ -12,13 +12,24 @@ namespace CommandParser85
     {
         static void Main(string[] args)
         {
-            var singleLoopFilePath = @"K:\NoLoopExample.txt";
+            var singleLoopFilePath = @"K:\SingleLoopExample.txt";
             string readAllText = File.ReadAllText(singleLoopFilePath);
 
             List<string> list = new List<string>(Regex.Split(readAllText, Environment.NewLine));
+            List<string> new_list = new List<string>();
 
-            NoLoopExample obj = new NoLoopExample();
-            obj.NoLoop(list, singleLoopFilePath);
+            var commentPattern = @"\s*^(#.+)";
+            var loopStartCheck = @"[^\n]*?loop \d[^\n]*";
+            var loopEndCheck = @"[^\n]*?endloop[^\n]*";
+            var loopInsidePattern = @"[^\n]*?loop (\d)(.*?)([A-Za-z0-9\-](.*?))endloop[^\n]*";
+            
+            NoLoopExample nle = new NoLoopExample();
+            SingleLoopExample slc = new SingleLoopExample();
+
+            //nle.NoLoop(list,  new_list, singleLoopFilePath, commentPattern);
+            slc.SingleLoop(list, new_list, singleLoopFilePath, commentPattern, loopStartCheck, loopEndCheck, loopInsidePattern);
         }
+
+        
     }
 }

@@ -45,6 +45,8 @@
     <Compile Include="NoLoopExample.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SingleLoopExample.cs" />
+    <Compile Include="ActionClass.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

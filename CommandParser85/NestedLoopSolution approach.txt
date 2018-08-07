@@ -1,0 +1,19 @@
+﻿Nested loop solution
+
+
+As I could not get to the NestedLoop part of the solution before Sunday Noon and did not want to upload anything later than the designated time, therefore, I have uploaded the part that I had completed by then.
+
+
+I would approach the nested loop solution in the following way:
+
+
+It would be similar to the SingleLoopSolution except that I would put the part where the loop statement is checked and processed as it's own function. 
+
+
+This function, like the code in SingleLoopSolution, will spot a loop statement and append all the lines within the loop for number of times mentioned after the delimiter. 
+
+
+The nested loop method would make a call to the loop method (mentioned above) when it encounters a loop statement. If it finds another loop statement in the loop commands, I will make a recursive function call to itself and print out the lines within that loop statement for the number of times mentioned after the delimiter.
+
+
+The key difference between the SingleLoopSolution and the NestedLoopSolution is the recursive call made to the function that detects a loop statement and writes statements within the loop into the file.
